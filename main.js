@@ -2,14 +2,16 @@ import './style.css'
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import venomImg from './venom.jpg';
+import normalImg from './normal-map-curved-lines.webp';
 import { AmbientLight } from 'three';
 
 // Loading
 const textureLoader = new THREE.TextureLoader()
 
-const normalTexture = textureLoader.load('./assets/normal-map-curved-lines.webp')
-const venomTexture = textureLoader.load('./assets/venom.jpg')
-const faceTexture = textureLoader.load('./assets/face-map.jpg')
+const normalTexture = textureLoader.load(normalImg);
+const venomTexture = textureLoader.load(venomImg);
+const faceTexture = textureLoader.load('.face-map.jpg')
 
 // Set up
 const scene = new THREE.Scene();
@@ -41,13 +43,13 @@ const sphere = new THREE.Mesh( geometry, material);
 scene.add( sphere );
 
 // Lights
-const pointLight = new THREE.PointLight( 0x69c9d0, 0.55, 47 );
+const pointLight = new THREE.PointLight( 0x69c9d0, 0.75, 47 );
 pointLight.position.set( -30, -30, 1);
 
 const pointLight2 = new THREE.PointLight( 0xee1d52, 0.55, 47 );
 pointLight2.position.set( 30, 30, 1);
 
-const ambientLight = new THREE.AmbientLight( 0x404040 );
+const ambientLight = new THREE.AmbientLight( 0x404040, 0.2 );
 
 scene.add( pointLight, pointLight2, ambientLight );
 
