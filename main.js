@@ -2,6 +2,7 @@ import './style.css'
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { AmbientLight } from 'three';
 
 // Loading
 const textureLoader = new THREE.TextureLoader()
@@ -33,7 +34,7 @@ const material = new THREE.MeshStandardMaterial( {
   color: 0xffffff,
   metalness: 0,
   roughness: 0,
-  normalMap: faceTexture,
+  normalMap: normalTexture,
 });
 const sphere = new THREE.Mesh( geometry, material);
 
@@ -48,7 +49,7 @@ pointLight2.position.set( 30, 30, 1);
 
 const ambientLight = new THREE.AmbientLight( 0x404040 );
 
-scene.add( pointLight, pointLight2,  );
+scene.add( pointLight, pointLight2, ambientLight );
 
 //Helpers
 const lightHelper = new THREE.PointLightHelper(pointLight)
