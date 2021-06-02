@@ -84,6 +84,8 @@ function animate() {
   sphere.rotation.y += 0.01;
 
   controls.update();
+  renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.setSize( window.innerWidth , window.innerHeight );
   renderer.render( scene, camera );
 }
 
