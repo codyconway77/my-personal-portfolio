@@ -1,11 +1,22 @@
 * {
   margin: none;
   padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 canvas {
   position: fixed;
   top: 0;
   left: 0;
+  background-image: url("./pexels-hristo-fidanov-1252890.jpg");
+  background-size: cover;
+}
+
+/* #bg {
+  background: url("pexels-hristo-fidanov-1252890.jpg") no-repeat center center;
+  background-size: cover;
+} */
+a {
+  text-decoration: none;
 }
 
 main {
@@ -36,6 +47,24 @@ header {
   font-size: 2.5rem;
   padding: 2rem;
   margin-bottom: var(--spacing);
+}
+
+footer {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  grid-column: 3 / 11;
+  position: absolute;
+  height: 70px;
+  bottom: 0;
+  background-color: rgba(37, 244, 238, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer a:hover {
+  color: black;
 }
 
 section {
@@ -92,6 +121,55 @@ blockquote p {
 .glass-card::before {
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  column-gap: 20px;
+  row-gap: 10px;
+  justify-items: center;
+}
+
+.project-card {
+  width: 400px;
+  border-radius: 15px;
+  padding: 7px;
+  background-color: rgba(50, 50, 50, 0.8);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-source {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
+.project-source h4 {
+  margin: 0;
+  font-style: italic;
+}
+
+.project-source a:hover {
+  color: rgba(150, 150, 150, 0.6);
+  border-radius: 50%;
+}
+
+.project-preview {
+  width: 100%;
+  height: 250px;
+  border-radius: 15px;
+}
+
+.icon {
+  color: white;
 }
 
 @media (max-width: 800px) {

@@ -4,6 +4,8 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import venomImg from './venom.jpg';
 import normalImg from './normal-map-curved-lines.webp';
+import backgroundImg from './pexels-hristo-fidanov-1252890.jpg';
+import backgroundImg2 from './pexels-francesco-ungaro-998641.jpg';
 import { AmbientLight } from 'three';
 
 // Loading
@@ -12,15 +14,18 @@ const textureLoader = new THREE.TextureLoader()
 const normalTexture = textureLoader.load(normalImg);
 const venomTexture = textureLoader.load(venomImg);
 const faceTexture = textureLoader.load('.face-map.jpg')
+textureLoader.load(backgroundImg2, function(texture) {
+  scene.background = texture;
+});
 
 // Set up
 const scene = new THREE.Scene();
-
 
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
+  alpha: false,
 });
 
 renderer.setPixelRatio( window.devicePixelRatio );
